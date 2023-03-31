@@ -1,0 +1,61 @@
+# Save model_2 using the HDF5 format
+model_2.save("/content/drive/MyDrive/Pizza_Steak/models/model_2.h5")
+
+# Load model_2 using .h5 format
+model_2 =  tf.keras.models.load_model("/content/drive/MyDrive/Pizza_Steak/models/model_2.h5")
+
+# Save the history_2 file
+with open("/content/drive/MyDrive/Pizza_Steak/models/history_2", 'wb') as file_pi:
+  pickle.dump(history_2.history, file_pi)
+
+# Load history_2
+with open("/content/drive/MyDrive/Pizza_Steak/models/history_2", "rb") as file_pi:
+  history_2 = pickle.load(file_pi)
+
+
+
+
+Download a file directly to google drive via colab
+
+import requests 
+file_url = "https://raw.githubusercontent.com/mrdbourke/tensorflow-deep-learning/main/images/03-steak.jpeg"
+    
+r = requests.get(file_url, stream = True) 
+  
+with open("/content/drive/MyDrive/Data/03-steak.jpeg", "wb") as file: 
+    for block in r.iter_content(chunk_size = 1024):
+         if block: 
+             file.write(block) 
+
+
+this will unzip the file
+# Unzip the uploaded data into Google Drive
+!unzip "/content/drive/MyDrive/Pizza_Steak/10_food_classes_all_data.zip" -d "/content/drive/MyDrive/Pizza_Steak"
+
+OR
+
+(# import zipfile
+
+# !wget url -P path
+)
+
+
+# # Unzip the downloaded file
+# zip_ref = zipfile.ZipFile("file path", "r")
+# zip_ref.extractall("folder path")
+# zip_ref.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
